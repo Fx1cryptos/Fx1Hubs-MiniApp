@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useRef } from "react"
 
 export function Header3D() {
@@ -12,11 +13,12 @@ export function Header3D() {
     if (!ctx) return
 
     canvas.width = window.innerWidth
-    canvas.height = 500
+    canvas.height = 580
 
+    let time = 0
     let animationId: number
 
-    // Particle system for animated background
+    // Floating particles — Base electric blue
     const particles: Array<{
       x: number
       y: number
@@ -26,123 +28,87 @@ export function Header3D() {
       opacity: number
     }> = []
 
-    // Initialize particles
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2,
-        size: Math.random() * 3 + 1,
-        opacity: Math.random() * 0.5 + 0.3,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        size: Math.random() * 3 + 1.5,
+        opacity: Math.random() * 0.6 + 0.2,
       })
     }
 
-    // Grid lines animation
-    const gridLines: Array<{ x: number; y: number; angle: number }> = []
-    for (let i = 0; i < 5; i++) {
-      for (let j = 0; j < 5; j++) {
-        gridLines.push({
-          x: (i / 5) * canvas.width,
-          y: (j / 5) * canvas.height,
-          angle: Math.random() * Math.PI * 2,
-        })
-      }
-    }
-
-    let time = 0
-
     const animate = () => {
-      time += 0.01
+      time += 0.015
 
-      // Gradient background
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-      gradient.addColorStop(0, "#0052FF")
-      gradient.addColorStop(0.5, "#001A3D")
-      gradient.addColorStop(1, "#0052FF")
-      ctx.fillStyle = gradient
+      // Deep Base-style gradient background
+      const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height)
+      bgGradient.addColorStop(0, "#0A1F3D")
+      bgGradient.addColorStop(0.4, "#0D2B66")
+      bgGradient.addColorStop(1, "#001233")
+      ctx.fillStyle = bgGradient
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // Draw animated grid
-      ctx.strokeStyle = "rgba(74, 123, 167, 0.15)"
+      // Subtle animated grid (Base classic)
+      ctx.strokeStyle = "rgba(0, 114, 255, 0.08)"
       ctx.lineWidth = 1
-      for (let i = 0; i < canvas.width; i += 50) {
+      for (let i = 0; i < canvas.width; i += 80) {
         ctx.beginPath()
-        ctx.moveTo(i + Math.sin(time) * 10, 0)
-        ctx.lineTo(i + Math.sin(time + 1) * 10, canvas.height)
+        ctx.moveTo(i + Math.sin(time * 2) * 30, 0)
+        ctx.lineTo(i + Math.cos(time * 1.5) * 30, canvas.height)
+        ctx.stroke()
+      }
+      for (let i = 0; i < canvas.height; i += 80) {
+        ctx.beginPath()
+        ctx.moveTo(0, i + Math.cos(time * 2) * 30)
+        ctx.lineTo(canvas.width, i + Math.sin(time * 1.5) * 30)
         ctx.stroke()
       }
 
-      // Draw animated glowing lines
-      ctx.strokeStyle = "rgba(255, 204, 51, 0.3)"
-      ctx.lineWidth = 2
-      for (const line of gridLines) {
+      // Glowing floating particles — Base cobalt + white glow
+      particles.forEach(p => {
+        p.x += p.vx
+        p.y += p.vy
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+
+        // Glow
+        ctx.fillStyle = "rgba(0, 114, 255, 0.4)"
         ctx.beginPath()
-        const x1 = line.x + Math.cos(time + line.angle) * 50
-        const y1 = line.y + Math.sin(time + line.angle) * 50
-        const x2 = line.x + Math.cos(time + line.angle + Math.PI) * 50
-        const y2 = line.y + Math.sin(time + line.angle + Math.PI) * 50
-        ctx.moveTo(x1, y1)
-        ctx.lineTo(x2, y2)
-        ctx.stroke()
-      }
-
-      // Draw and update particles
-      for (const particle of particles) {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        // Draw particle
-        ctx.fillStyle = `rgba(212, 175, 55, ${particle.opacity})`
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
+        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2)
         ctx.fill()
 
-        // Glow effect
-        ctx.fillStyle = `rgba(255, 204, 51, ${particle.opacity * 0.3})`
+        // Core
+        ctx.fillStyle = `rgba(0, 191, 255, ${p.opacity})`
         ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2)
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
         ctx.fill()
-      }
+      })
 
-      // Draw floating 3D shapes (simplified)
-      ctx.strokeStyle = "rgba(74, 123, 167, 0.4)"
+      // Floating 3D wireframe cube (Base style)
+      const cubeSize = 90
+      const cx = canvas.width / 2 + Math.sin(time) * 80
+      const cy = canvas.height / 2.5 + Math.cos(time * 0.8) * 50
+
+      ctx.strokeStyle = "rgba(0, 191, 255, 0.7)"
       ctx.lineWidth = 2
 
-      // Cube outline
-      const cubeSize = 40
-      const cubeX = canvas.width / 4 + Math.sin(time) * 20
-      const cubeY = canvas.height / 3 + Math.cos(time * 0.7) * 15
-
-      ctx.strokeRect(cubeX, cubeY, cubeSize, cubeSize)
-      ctx.strokeRect(cubeX - 15, cubeY - 15, cubeSize, cubeSize)
+      // Front face
+      ctx.strokeRect(cx - cubeSize / 2, cy - cubeSize / 2, cubeSize, cubeSize)
+      // Back face (offset)
+      ctx.strokeRect(cx - cubeSize / 2 - 30, cy - cubeSize / 2 - 30, cubeSize, cubeSize)
+      // Connecting edges
       ctx.beginPath()
-      ctx.moveTo(cubeX, cubeY)
-      ctx.lineTo(cubeX - 15, cubeY - 15)
-      ctx.moveTo(cubeX + cubeSize, cubeY)
-      ctx.lineTo(cubeX + cubeSize - 15, cubeY - 15)
-      ctx.moveTo(cubeX, cubeY + cubeSize)
-      ctx.lineTo(cubeX - 15, cubeY + cubeSize - 15)
-      ctx.moveTo(cubeX + cubeSize, cubeY + cubeSize)
-      ctx.lineTo(cubeX + cubeSize - 15, cubeY + cubeSize - 15)
-      ctx.stroke()
-
-      // Octahedron on right side
-      const octaX = (canvas.width * 3) / 4
-      const octaY = canvas.height / 2 + Math.sin(time * 0.8) * 20
-      const octaSize = 50
-
-      ctx.strokeStyle = "rgba(212, 175, 55, 0.5)"
-      ctx.beginPath()
-      ctx.moveTo(octaX, octaY - octaSize)
-      ctx.lineTo(octaX + octaSize, octaY)
-      ctx.lineTo(octaX, octaY + octaSize)
-      ctx.lineTo(octaX - octaSize, octaY)
-      ctx.closePath()
+      ctx.moveTo(cx - cubeSize / 2, cy - cubeSize / 2)
+      ctx.lineTo(cx - cubeSize / 2 - 30, cy - cubeSize / 2 - 30)
+      ctx.moveTo(cx + cubeSize / 2, cy - cubeSize / 2)
+      ctx.lineTo(cx + cubeSize / 2 - 30, cy - cubeSize / 2 - 30)
+      ctx.moveTo(cx - cubeSize / 2, cy + cubeSize / 2)
+      ctx.lineTo(cx - cubeSize / 2 - 30, cy + cubeSize / 2 - 30)
+      ctx.moveTo(cx + cubeSize / 2, cy + cubeSize / 2)
+      ctx.lineTo(cx + cubeSize / 2 - 30, cy + cubeSize / 2 - 30)
       ctx.stroke()
 
       animationId = requestAnimationFrame(animate)
@@ -150,12 +116,11 @@ export function Header3D() {
 
     animate()
 
-    // Handle resize
     const handleResize = () => {
       canvas.width = window.innerWidth
     }
-
     window.addEventListener("resize", handleResize)
+
     return () => {
       cancelAnimationFrame(animationId)
       window.removeEventListener("resize", handleResize)
@@ -163,21 +128,34 @@ export function Header3D() {
   }, [])
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <canvas ref={canvasRef} className="w-full block" />
-      {/* Overlay with text and logo */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <div className="mb-8">
-          <div className="w-32 h-32 mx-auto bg-gradient-to-br from-[#FFCC33] to-[#FFD700] rounded-full flex items-center justify-center border-4 border-white shadow-2xl">
-            <div className="text-5xl font-bold text-[#0052FF]">FDH</div>
+    <div className="relative w-full overflow-hidden bg-[#0A1F3D]">
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ height: "580px" }} />
+
+      {/* Hero Overlay – Base Brands Style */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-[580px] text-center px-6">
+        {/* $FDH Logo – Electric Base Blue Ring */}
+        <div className="mb-10">
+          <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#00C2FF] to-[#0088FF] p-1 shadow-2xl animate-pulse-slow">
+            <div className="w-full h-full rounded-full bg-[#001233] flex items-center justify-center border-8 border-[#00D4FF]/20">
+              <span className="text-6xl font-black text-white tracking-tighter">$FDH</span>
+            </div>
           </div>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl">
-          Where Digital Fashion Meets Onchain Innovation
+
+        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight max-w-5xl">
+          THE FUTURE OF STYLE
+          <br />
+          <span className="bg-gradient-to-r from-[#00C2FF] to-[#00FFD1] bg-clip-text text-transparent">
+            LIVES ON BASE
+          </span>
         </h1>
-        <p className="text-white/80 text-lg mt-4 drop-shadow-lg">
-          Generate AI NFTs, build your 3D wardrobe, earn $FDH rewards on Base
+
+        <p className="mt-6 text-xl md:text-2xl text-[#00C2FF]/90 font-medium max-w-2xl">
+          AI-generated fashion NFTs • 3D wearable wardrobe • Powered by $FDH on Base
         </p>
+
+        {/* Subtle glow line */}
+        <div className="mt-10 w-64 h-1 bg-gradient-to-r from-transparent via-[#00D4FF] to-transparent rounded-full" />
       </div>
     </div>
   )
