@@ -1,86 +1,78 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* * BASE BRAND 3D THEME
+ * Background: Royal Blue #0504AA (with subtle 3D grid effect)
+ * Foreground: White #FFFFFF
+ * Accent: Gold #F5C542 (for primary interaction and focus rings)
+ */
 
-/* FX1 Digital Hubs - Base Brand Kit: Royal Blue #0038FF + Gold #F5C542 */
 :root {
-  /* Updated to match Base x FX1 identity */
-  --background: #0504aa;
-  --foreground: #ffffff;
-  --card: #0504aa;
-  --card-foreground: #ffffff;
-  --popover: #0504aa;
-  --popover-foreground: #ffffff;
-  --primary: #f5c542;
-  --primary-foreground: #0504aa;
-  --secondary: #0504aa;
-  --secondary-foreground: #ffffff;
-  --muted: #1a3a7f;
-  --muted-foreground: #b0d4ff;
-  --accent: #f5c542;
-  --accent-foreground: #0504aa;
-  --destructive: #ff6b6b;
-  --destructive-foreground: #ffffff;
-  --border: #0a5a94;
-  --input: #051840;
-  --ring: #f5c542;
-  --chart-1: #f5c542;
-  --chart-2: #0504aa;
-  --chart-3: #00a8e1;
-  --chart-4: #ffd700;
-  --chart-5: #87ceeb;
+  /* Core Colors */
+  --background: #0504AA; /* Royal Blue Background */
+  --foreground: #FFFFFF; /* White Text/Elements */
+  
+  /* Component Colors (Slightly lighter/transparent blue for depth on a blue BG) */
+  --card: #0E0D6B; /* Darker blue for cards/containers */
+  --card-foreground: #FFFFFF;
+  --popover: #0E0D6B;
+  --popover-foreground: #FFFFFF;
+  
+  /* Primary Action (Gold/Accent) */
+  --primary: #F5C542;
+  --primary-foreground: #0504AA;
+  
+  /* Secondary Elements (Contrast Blue) */
+  --secondary: #1A18C0; 
+  --secondary-foreground: #FFFFFF;
+  
+  /* Utility/Subtle Colors */
+  --muted: #1A3A7F;
+  --muted-foreground: #B0D4FF;
+  --accent: #F5C542;
+  --accent-foreground: #0504AA;
+  
+  /* Feedback/Destructive */
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Borders and Focus */
+  --border: #1A18C0; /* Brighter blue for visibility */
+  --input: #0E0D6B;
+  --ring: #F5C542;
   --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Chart Colors (Retained for consistency) */
+  --chart-1: #F5C542;
+  --chart-2: #0504AA;
+  --chart-3: #00A8E1;
+  --chart-4: #FFD700;
+  --chart-5: #87CEEB;
+
+  /* Sidebar (Keeping dark mode consistency for uniformity) */
+  --sidebar: #0E0D6B;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #F5C542;
+  --sidebar-primary-foreground: #0504AA;
+  --sidebar-accent: #1A18C0;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1A18C0;
+  --sidebar-ring: #F5C542;
 
   /* Custom FX1 Colors */
-  --royal-blue: #0038ff;
-  --royal-blue-dark: #001a7f;
-  --gold: #f5c542;
-  --gold-light: #ffd700;
+  --royal-blue: #0038FF;
+  --royal-blue-dark: #001A7F;
+  --gold: #F5C542;
+  --gold-light: #FFD700;
 }
 
+/* Since the request is for a unified Royal Blue background, 
+   we'll keep the dark theme identical to the root theme for consistency. */
 .dark {
-  --background: #0504aa;
-  --foreground: #ffffff;
-  --card: #0504aa;
-  --card-foreground: #ffffff;
-  --popover: #0504aa;
-  --popover-foreground: #ffffff;
-  --primary: #f5c542;
-  --primary-foreground: #0504aa;
-  --secondary: #0504aa;
-  --secondary-foreground: #ffffff;
-  --muted: #1a3a7f;
-  --muted-foreground: #b0d4ff;
-  --accent: #f5c542;
-  --accent-foreground: #0504aa;
-  --destructive: #ff6b6b;
-  --destructive-foreground: #ffffff;
-  --border: #0a5a94;
-  --input: #051840;
-  --ring: #f5c542;
-  --chart-1: #f5c542;
-  --chart-2: #0504aa;
-  --chart-3: #00a8e1;
-  --chart-4: #ffd700;
-  --chart-5: #87ceeb;
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Variables are inherited from :root, simplifying the dark block */
 }
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
@@ -128,15 +120,39 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Base styles and 3D background effect */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
+  /* Apply the royal blue background */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground relative min-h-screen;
+    overflow-x: hidden;
   }
 
-  /* Added bold typography styles for improved legibility */
+  /* 3D Grid Overlay for Background Depth */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5; /* Subtle white grid */
+    z-index: -1;
+    pointer-events: none;
+    /* Adding subtle perspective and skew for a 3D field look */
+    transform: perspective(1000px) rotateX(75deg) translateY(200px) scale(2); 
+    transform-origin: bottom center;
+  }
+  
+  /* Typography enhancements */
   h1,
   h2,
   h3,
@@ -167,10 +183,10 @@
 @keyframes glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(245, 197, 66, 0.3), 0 0 10px rgba(0, 56, 255, 0.2);
+    box-shadow: 0 0 20px var(--gold), 0 0 10px var(--royal-blue);
   }
   50% {
-    box-shadow: 0 0 40px rgba(245, 197, 66, 0.5), 0 0 20px rgba(0, 56, 255, 0.4);
+    box-shadow: 0 0 40px var(--gold-light), 0 0 20px var(--royal-blue-dark);
   }
 }
 
@@ -211,16 +227,21 @@
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* Enhanced 3D Card style */
 .card-3d {
   transform-style: preserve-3d;
   perspective: 1000px;
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Lifted Shadow */
 }
 
+/* Hover effect for 3D tilt */
 .card-3d:hover {
-  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  transform: rotateY(5deg) rotateX(3deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - Kept to maintain Gold/Royal Blue contrast */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -237,3 +258,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-light);
 }
+
