@@ -1,4 +1,7 @@
 {
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  },
   "name": "FX1 Digital Hubs | Onchain Innovation on Base",
   "description": "The creative Web3 ecosystem built on Base, empowering builders and creators through AI fashion NFTs, personalized digital wardrobes, and $FDH rewards. Shaping the next era of digital identity and community.",
   "icon": "https://fx1-hubs.vercel.app/images/fx1_icon_512.png",
@@ -12,3 +15,4 @@
     "deeplinks": true
   }
 }
+
