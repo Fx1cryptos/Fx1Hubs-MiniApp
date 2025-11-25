@@ -1,0 +1,239 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* FX1 Digital Hubs - Base Brand Kit: Royal Blue #0038FF + Gold #F5C542 */
+:root {
+  /* Updated to match Base x FX1 identity */
+  --background: #0504aa;
+  --foreground: #ffffff;
+  --card: #0504aa;
+  --card-foreground: #ffffff;
+  --popover: #0504aa;
+  --popover-foreground: #ffffff;
+  --primary: #f5c542;
+  --primary-foreground: #0504aa;
+  --secondary: #0504aa;
+  --secondary-foreground: #ffffff;
+  --muted: #1a3a7f;
+  --muted-foreground: #b0d4ff;
+  --accent: #f5c542;
+  --accent-foreground: #0504aa;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #0a5a94;
+  --input: #051840;
+  --ring: #f5c542;
+  --chart-1: #f5c542;
+  --chart-2: #0504aa;
+  --chart-3: #00a8e1;
+  --chart-4: #ffd700;
+  --chart-5: #87ceeb;
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Custom FX1 Colors */
+  --royal-blue: #0038ff;
+  --royal-blue-dark: #001a7f;
+  --gold: #f5c542;
+  --gold-light: #ffd700;
+}
+
+.dark {
+  --background: #0504aa;
+  --foreground: #ffffff;
+  --card: #0504aa;
+  --card-foreground: #ffffff;
+  --popover: #0504aa;
+  --popover-foreground: #ffffff;
+  --primary: #f5c542;
+  --primary-foreground: #0504aa;
+  --secondary: #0504aa;
+  --secondary-foreground: #ffffff;
+  --muted: #1a3a7f;
+  --muted-foreground: #b0d4ff;
+  --accent: #f5c542;
+  --accent-foreground: #0504aa;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #0a5a94;
+  --input: #051840;
+  --ring: #f5c542;
+  --chart-1: #f5c542;
+  --chart-2: #0504aa;
+  --chart-3: #00a8e1;
+  --chart-4: #ffd700;
+  --chart-5: #87ceeb;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --font-sans: "Inter", "Inter Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-royal-blue: var(--royal-blue);
+  --color-royal-blue-dark: var(--royal-blue-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added bold typography styles for improved legibility */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold tracking-tight;
+  }
+
+  p,
+  span,
+  div {
+    @apply font-medium;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(5deg);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(245, 197, 66, 0.3), 0 0 10px rgba(0, 56, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 197, 66, 0.5), 0 0 20px rgba(0, 56, 255, 0.4);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--royal-blue-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}

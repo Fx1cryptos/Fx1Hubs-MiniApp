@@ -1,0 +1,37 @@
+{
+  "name": "FX1 Digital Hubs",
+  "short_name": "FX1 Hubs",
+  "description": "Styling the Blockchain: FX1 is the Web3 creative ecosystem on Base for AI Fashion NFTs and onchain identity, driven by community and $FDH rewards. Empowering digital pioneers.",
+  "start_url": "https://v0-fx-1-digital-hubs.vercel.app/",
+  "display": "standalone",
+  "background_color": "#0052FF",
+  "theme_color": "#0052FF",
+  "icons": [
+    {
+      "src": "https://v0-fx-1-digital-hubs.vercel.app/images/fx1_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://v0-fx-1-digital-hubs.vercel.app/images/fx1_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://v0-fx-1-digital-hubs.vercel.app/images/fx1_screenshot_mobile.png",
+      "type": "image/png",
+      "sizes": "640x1136"
+    }
+  ],
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  },
+  "url_handlers": [
+    {
+      "handle_all_urls": true
+    }
+  ],
+  "manifest_version": 1
+}

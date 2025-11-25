@@ -1,9 +1,0 @@
-{
-  "baseBuilder": {
-    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620",
-    "name": "FX1 Digital Hubs",
-    "icon": "https://v0-fx-1-digital-hubs.vercel.app/fdh-icon.png",
-    "description": "Where Digital Fashion Meets Onchain Innovation. Generate AI NFTs and build your 3D wardrobe on Base."
-  }
-}
-
