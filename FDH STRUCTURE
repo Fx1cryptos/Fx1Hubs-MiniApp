@@ -1,0 +1,65 @@
+fx1-digital-hubs-miniapp/
+│
+├── miniapp.json
+├── package.json
+├── README.md
+├── tsconfig.json
+├── next.config.js
+├── tailwind.config.js
+├── postcss.config.js
+│
+├── public/
+│   ├── logo.png
+│   ├── icon.png
+│   ├── preview.png
+│   └── favicon.ico
+│
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx          # Home page (drop + gallery preview)
+│   │   │
+│   │   ├── gallery/
+│   │   │   ├── page.tsx
+│   │   │   └── NFTCard.tsx
+│   │   │
+│   │   ├── passport/
+│   │   │   ├── page.tsx
+│   │   │   └── Badge.tsx
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── page.tsx
+│   │   │   ├── CreateDrop.tsx
+│   │   │   └── DropList.tsx
+│   │   │
+│   │   └── api/
+│   │       ├── nfts/
+│   │       │   └── route.ts
+│   │       ├── drops/
+│   │       │   └── route.ts
+│   │       └── passport/
+│   │           └── route.ts
+│   │
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── WalletConnect.tsx
+│   │   ├── DropCard.tsx
+│   │   ├── Button.tsx
+│   │   ├── Footer.tsx
+│   │   └── Loading.tsx
+│   │
+│   ├── config/
+│   │   └── contracts.json
+│   │
+│   ├── lib/
+│   │   ├── wallet.ts
+│   │   ├── zora.ts
+│   │   ├── drops.ts
+│   │   ├── passport.ts
+│   │   └── miniapp-actions.ts
+│   │
+│   └── styles/
+│       └── theme.css     # Royal blue, white, gold theme tokens
+│
+└── .env.example
