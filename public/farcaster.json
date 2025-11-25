@@ -1,14 +1,35 @@
 {
-  "name": "FX1 Digital Hubs | Onchain Innovation on Base",
-  "description": "The creative Web3 ecosystem built on Base, empowering builders and creators through AI fashion NFTs, personalized digital wardrobes, and $FDH rewards. Shaping the next era of digital identity and community.",
-  "icon": "https://v0-fx-1-digital-hubs.vercel.app/images/fx1_icon_512.png",
-  "external_url": "https://v0-fx-1-digital-hubs.vercel.app/",
-  "version": "1.1.0",
-  "app_url_path": "/",
-  "deep_link_paths": ["/profile/:fid", "/wardrobe/:address"],
-  "supported_features": {
-    "frames": true,
-    "login": true,
-    "deeplinks": true
+  "name": "FX1 Digital Hubs",
+  "description": "Where digital fashion meets onchain innovation. Mint AI NFTs, build your wardrobe, earn $FDH rewards on Base.",
+  "url": "https://fx1-hubs.vercel.app",
+  "icon": "https://fx1-hubs.vercel.app/icon512.png",
+  "developer": "Olams",
+  "username": "fx1_hubs",
+  "permissions": [],
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  },
+  "shortcuts": [
+    {
+      "name": "Wear to Earn",
+      "description": "Equip NFTs and earn rewards",
+      "url": "/wear-to-earn"
+    },
+    {
+      "name": "AI Studio",
+      "description": "Generate fashion NFTs",
+      "url": "/ai-studio"
+    },
+    {
+      "name": "Wardrobe",
+      "description": "View your NFT collection",
+      "url": "/wardrobe"
+    }
+  ],
+  "categories": ["lifestyle", "entertainment", "social", "finance"],
+  "blockchain": {
+    "chain": "base",
+    "chainId": 8453,
+    "network": "mainnet"
   }
 }
