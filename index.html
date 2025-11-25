@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FX1 Digital Hubs Mini App</title>
+
+    <!-- Brand Styles -->
+    <style>
+        :root {
+            --royal-blue: #0504AA;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--royal-blue);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-top: -5px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: var(--white);
+            color: var(--royal-blue);
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            font-weight: bold;
+            color: var(--royal-blue);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- FX1 Logo Placeholder -->
+        <div class="logo">FX1</div>
+
+        <h1>FX1 DIGITAL HUBS</h1>
+        <h2>Fashion × Art × Blockchain</h2>
+
+        <!-- Connect Wallet Button -->
+        <button onclick="connectWallet()">
+            Connect Wallet
+        </button>
+
+        <p class="footer">Powered by Base · $FDH Ecosystem</p>
+    </div>
+
+    <script>
+        // Basic Wallet Connect Logic (Browser Wallet)
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    alert("Wallet Connected: " + accounts[0]);
+                } catch (error) {
+                    alert("Connection rejected.");
+                }
+            } else {
+                alert("No wallet detected. Please install Coinbase Wallet or MetaMask.");
+            }
+        }
+    </script>
+
+</body>
+</html>
