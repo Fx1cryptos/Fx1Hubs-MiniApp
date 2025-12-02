@@ -1,0 +1,24 @@
+fx1-miniapp/
+│
+├── public/
+│   ├── farcaster.json
+│   └── logo.png
+│
+├── src/
+│   ├── api/
+│   │   └── memory.js
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Gallery.jsx
+│   │   └── Footer.jsx
+│   ├── pages/
+│   │   └── Home.jsx
+│   ├── styles/
+│   │   └── global.css
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── utils/theme.js
+│
+├── index.html
+└── vite.config.js
