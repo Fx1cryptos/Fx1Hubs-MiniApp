@@ -1,1 +1,8 @@
-{"schema":"https://standard.frame.json","version":"1.0","name":"FX1 Digital Hubs Mini App","description":"A Web3 Fashion + Art Mini App built on Base. Powered by $FDH.","icon":"https://fx1-hubs.vercel.app/icon.png","homepage":"https://fx1-hubs.vercel.app","owner":{"address":"0x5f188E67C374feF892Cc3BaC4aE0689166C6a620","basenames":["Fx1hubs.base.eth","Olamsfx1.base.eth"]},"routes":{"/":{"name":"Home","description":"Welcome to FX1 Digital Hubs — Fashion, Art & Onchain Creativity","image":"https://fx1-hubs.vercel.app/cover.png","cta":[{"label":"Enter FX1 Wardrobe","action":"link","target":"/wardrobe"},{"label":"View $FDH Collection","action":"link","target":"/collection"}]},"/wardrobe":{"name":"Digital Wardrobe","description":"Wear-to-Earn fashion utilities powered by $FDH","image":"https://fx1-hubs.vercel.app/wardrobe.png"},"/collection":{"name":"NFT Gallery","description":"Fetch NFTs from Zora & OpenSea automatically","image":"https://fx1-hubs.vercel.app/nfts.png"}},"permissions":{"profile":true,"signing":false}}
+{
+  "name": "FX1 Digital Hubs",
+  "description": "Onchain Fashion, NFT Art & Digital Wardrobes on Base.",
+  "icon": "logo.png",
+  "owner": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620",
+  "developer": "Fx1hubs.base.eth",
+  "version": "1.0.0"
+}
