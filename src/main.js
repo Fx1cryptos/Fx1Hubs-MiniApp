@@ -1,6 +1,11 @@
 // ------------------------------------------------------
 // FX1 DIGITAL HUBS — Mini App Script (Vite Version)
 // ------------------------------------------------------
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+// Initialize Vercel Speed Insights (client-side only)
+injectSpeedInsights();
+
 console.log("FX1 Mini App Loaded (Vite Mode)");
 
 // -----------------------------------------
