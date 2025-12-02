@@ -1,0 +1,63 @@
+:root {
+  --base-blue: #0504aa;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  background: var(--base-blue);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+.logo {
+  font-size: 44px;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--base-blue);
+  padding: 14px 26px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#wallet-status {
+  margin-top: 15px;
+  opacity: 0.9;
+}
+
+.memory-box {
+  margin-top: 35px;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 12px;
+  opacity: 0.9;
+}
+
+.footer {
+  margin-top: 50px;
+  opacity: 0.7;
+  font-size: 14px;
+}
