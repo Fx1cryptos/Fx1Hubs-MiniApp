@@ -1,7 +1,5 @@
 {
   "accountAssociation": {
-    // This section is for linking external accounts securely. 
-    // Leave these fields empty for now unless you have a specific backend system.
     "header": "",
     "payload": "",
     "signature": ""
@@ -10,9 +8,9 @@
   "baseBuilder": {
     "name": "FX1 Digital Hubs",
     "description": "Onchain Fashion, NFT Art & Digital Wardrobes on Base.",
-    "icon": "logo.png", // Icon file name relative to the repository, or use a URL
-    "owner": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620", // Your Base wallet address
-    "developer": "Fx1hubs.base.eth", // Your Farcaster/ENS name
+    "icon": "logo.png", 
+    "owner": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620", 
+    "developer": "Fx1hubs.base.eth", 
     "version": "1.0.0"
   },
   
@@ -20,33 +18,29 @@
     "version": "1",
     "name": "FX1 Digital Hubs",
     
-    // 🌐 URL Configuration
     "homeUrl": "https://fx1-hubs.vercel.app", 
-    "webhookUrl": "https://fx1-hubs.vercel.app/api/webhook", // Update if you use a backend webhook
+    "webhookUrl": "https://fx1-hubs.vercel.app/api/webhook", 
     
-    // 🖼️ VISUALS & IMAGES
     "iconUrl": "https://fx1-hubs.vercel.app/icon.png", 
     "splashImageUrl": "https://fx1-hubs.vercel.app/splash.png", 
-    "splashBackgroundColor": "#2457FF", // Changed to Base Blue
-    "heroImageUrl": "https://fx1-hubs.vercel.app/hero.png", // The main listing image
+    "splashBackgroundColor": "#0504aa", 
+    "heroImageUrl": "https://fx1-hubs.vercel.app/hero.png", 
     "screenshotUrls": [
       "https://fx1-hubs.vercel.app/s1.png",
       "https://fx1-hubs.vercel.app/s2.png",
       "https://fx1-hubs.vercel.app/s3.png"
     ],
     
-    // 📝 METADATA
     "subtitle": "Styling the Metaverse on Base",
     "tagline": "Merge Art, AI, and Blockchain to empower creators.",
     "description": "A lightweight, immersive onchain experience built natively on Base. Design wearable NFTs, claim your FX1 Onchain Passport, and grow the decentralized digital world.",
     "primaryCategory": "art",
     "tags": ["fashion", "nft", "ai", "basechain", "web3"],
 
-    // 🔗 SOCIAL SHARING (Open Graph)
     "ogTitle": "FX1 DIGITAL HUBS",
     "ogDescription": "Where art meets AI & builders go onchain. Styling the Metaverse.",
     "ogImageUrl": "https://fx1-hubs.vercel.app/og.png",
     
-    "noindex": false // Change this to 'false' so search engines can find it
+    "noindex": false
   }
 }
