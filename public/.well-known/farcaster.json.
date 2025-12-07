@@ -1,0 +1,43 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+    // Leave exactly like this → the submission page will auto-fill it when you click “Sign with Wallet”
+  },
+
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  },
+
+  "miniapp": {
+    "version": "1",
+    "name": "FX1 Digital Hubs",
+    "homeUrl": "https://fx1-hubs.vercel.app",
+    "iconUrl": "https://fx1-hubs.vercel.app/icon-512.png",
+    "splashImageUrl": "https://fx1-hubs.vercel.app/splash.png",
+    "splashBackgroundColor": "#0504AA",
+
+    "webhookUrl": "https://fx1-hubs.vercel.app/api/webhook",
+
+    "subtitle": "Fashion × Art × Blockchain",
+    "description": "The onchain fashion engine. Mint AI-generated NFT couture, build your digital wardrobe, and earn $FDH rewards on Base.",
+    "tagline": "Style the Blockchain",
+
+    "screenshotUrls": [
+      "https://fx1-hubs.vercel.app/screenshot-1.png",
+      "https://fx1-hubs.vercel.app/screenshot-2.png",
+      "https://fx1-hubs.vercel.app/screenshot-3.png"
+    ],
+
+    "primaryCategory": "fashion",
+    "tags": ["fashion", "nft", "ai", "base", "wear-to-earn", "digital-wardrobe", "fdh"],
+
+    "heroImageUrl": "https://fx1-hubs.vercel.app/hero.png",
+    "ogTitle": "FX1 Digital Hubs – Onchain Fashion & AI NFTs",
+    "ogDescription": "Mint couture. Wear to earn. Style the blockchain.",
+    "ogImageUrl": "https://fx1-hubs.vercel.app/embed-preview.png",
+
+    "noindex": false
+  }
+}
