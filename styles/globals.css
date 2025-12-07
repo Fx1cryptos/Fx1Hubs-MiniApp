@@ -1,134 +1,118 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* * 🛑 Note on @custom-variant: This is specific syntax (e.g., from an older PostCSS plugin). 
- * If it causes issues, you can remove it, as standard Tailwind handles dark mode.
- */
-/* @custom-variant dark (&:is(.dark *)); */ 
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ==================================== */
-  /* FX1 & BASE BRANDING COLORS */
-  /* ==================================== */
-  --base-blue: oklch(0.53 0.17 259.6); /* Official Base Chain Blue */
-  --base-blue-light: oklch(0.7 0.12 259.6); 
-  --fx1-accent: var(--base-blue); /* Use Base Blue as the main project accent color */
-
-  /* ==================================== */
-  /* SHADCN/TAILWIND UI COLORS (Light Mode) */
-  /* ==================================== */
-  --background: oklch(1 0 0);           /* White */
-  --foreground: oklch(0.145 0 0);       /* Near Black */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: var(--foreground);
+  --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: var(--foreground);
-
-  /* Primary color switched from gray to Base Blue */
-  --primary: var(--base-blue);
-  --primary-foreground: oklch(0.985 0 0); /* White text on Blue */
-  
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: var(--foreground);
+  --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  
-  --accent: var(--base-blue-light); /* Lighter blue for subtle highlights */
-  --accent-foreground: var(--foreground);
-  
-  --destructive: oklch(0.577 0.245 27.325); /* Red/Error */
-  --destructive-foreground: oklch(0.985 0 0); /* White */
-  
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: var(--base-blue-light); /* Ring color matches the accent */
-
-  --radius: 0.625rem;
-  
-  /* Sidebar colors remain neutral, but use Base accent */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
-
-  /* Chart colors remain unchanged */
+  --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  /* ==================================== */
-  /* FX1 & BASE BRANDING COLORS (Dark Mode) */
-  /* ==================================== */
-  --primary: var(--base-blue-light); /* Use a lighter blue on dark backgrounds */
-  --primary-foreground: oklch(0.145 0 0); /* Dark text on Light Blue */
-  
-  /* ==================================== */
-  /* SHADCN/TAILWIND UI COLORS (Dark Mode) */
-  /* ==================================== */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
-  --card-foreground: var(--foreground);
+  --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
-  --popover-foreground: var(--foreground);
-  
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
-  --secondary-foreground: var(--foreground);
+  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  
-  --accent: var(--base-blue); 
-  --accent-foreground: var(--foreground);
-  
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
-  --ring: var(--base-blue);
-
-  /* Sidebar colors adjusted for dark mode */
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary); 
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
-
-  /* Chart colors remain unchanged */
+  --ring: oklch(0.439 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
-/* * The @theme inline block and @layer base are standard and well-formed.
- * They correctly map the CSS variables to Tailwind classes and reset the body.
- */
 @theme inline {
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
-  /* ... (All other color mappings remain the same for brevity) ... */
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  /* ... */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  /* ... (All sidebar color mappings remain the same) ... */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {

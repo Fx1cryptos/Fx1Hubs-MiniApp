@@ -1,23 +1,14 @@
-/*
- * Rewritten Style Sheet for FX1 Digital Hubs - Using Base Branding and Global CSS Variables
- */
-
 :root {
-    /* Keeping these local variables for high contrast, but preferring global ones */
-    --base-blue: #2457FF; /* The Hex value of the Base Blue for simple use */
+    --royal-blue: #0504AA;
     --white: #ffffff;
 }
 
 body {
-    /* Use the global background/foreground colors for theme consistency */
-    background: var(--color-background, var(--white)); 
-    color: var(--color-foreground, var(--royal-blue)); 
-    
     margin: 0;
     padding: 0;
-    font-family: var(--font-sans, Arial, Helvetica, sans-serif); 
-    
-    /* Centering layout remains */
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--royal-blue);
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,14 +26,13 @@ body {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background: var(--color-primary, var(--base-blue)); /* Logo background uses Primary/Base Blue */
-    color: var(--color-primary-foreground, var(--white)); /* Text uses Primary Foreground */
-    
+    background: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto 20px auto;
     font-weight: bold;
+    color: var(--royal-blue);
     font-size: 20px;
 }
 
@@ -50,7 +40,6 @@ h1 {
     font-size: 28px;
     margin-bottom: 10px;
     font-weight: 700;
-    color: var(--color-primary, var(--base-blue)); /* Make the main title Base Blue for emphasis */
 }
 
 h2 {
@@ -65,20 +54,17 @@ button {
     padding: 15px;
     font-size: 16px;
     border: none;
-    border-radius: var(--radius-md, 8px); /* Use the global radius variable */
+    border-radius: 8px;
     cursor: pointer;
-    
-    /* Button uses Primary/Accent color for brand visibility */
-    background: var(--color-primary, var(--base-blue)); 
-    color: var(--color-primary-foreground, var(--white)); 
-    
+    background: var(--white);
+    color: var(--royal-blue);
     font-weight: bold;
     transition: 0.2s ease;
 }
 
 button:hover {
-    /* Use a lightened/darkened version of primary for hover effect */
-    opacity: 0.9;
+    opacity: 0.8;
+    
 }
 
 .footer {

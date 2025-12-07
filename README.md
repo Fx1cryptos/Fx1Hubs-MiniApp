@@ -40,7 +40,7 @@ Telegram Community: https://t.me/FX1_Hubs
 
 ## Quick Start (Developers)
 
-```bash
+\`\`\`bash
 git clone https://github.com/Fx1cryptos/Fx1Hubs-MiniApp.git
 cd Fx1Hubs-MiniApp
 npm install
