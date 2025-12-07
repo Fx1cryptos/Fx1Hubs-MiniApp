@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>FX1 Digital Hubs Mini App</title>
+    <title>FX1 DIGITAL HUBS Mini App | Base Chain</title>
 
-    <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#0504AA" />
+    <meta name="theme-color" content="#2457FF" /> 
 
-    <!-- Farcaster Mini-App Metadata -->
     <meta
       name="fc:miniapp"
       content='{
@@ -26,7 +24,6 @@
       }'
     />
 
-    <!-- Frame Legacy Metadata -->
     <meta
       name="fc:frame"
       content='{
@@ -42,32 +39,12 @@
       }'
     />
 
-    <!-- Vite CSS -->
     <link rel="stylesheet" href="/src/style.css" />
   </head>
 
   <body>
-    <div id="app" class="container">
-      <!-- Branding / Logo -->
-      <div class="logo">FX1</div>
+    <div id="root"></div>
 
-      <h1>FX1 DIGITAL HUBS</h1>
-      <h2>Fashion × Art × Blockchain</h2>
-
-      <!-- Wallet Connect -->
-      <button id="connect-btn" class="btn-primary">Connect Wallet</button>
-      <p id="wallet-status"></p>
-
-      <!-- Memory Protocol Panel -->
-      <div id="memory-panel" class="memory-box">
-        <h3>Memory Protocol</h3>
-        <p>Loading identity…</p>
-      </div>
-
-      <p class="footer">Powered by Base · $FDH Ecosystem</p>
-    </div>
-
-    <!-- Vite JS entry -->
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <script type="module" src="/src/main.jsx"></script> 
+    </body>
 </html>
