@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FX1 Digital Hubs Mini App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FX1 Digital Hubs</title>
 
-    <!-- PWA / Manifest -->
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#0504AA" />
+  <!-- Farcaster Mini App Metadata – FULLY WORKING 2025 spec -->
+  <meta name="fc:miniapp" content='{
+    "version": "next",
+    "imageUrl": "https://fx1-hubs.vercel.app/embed-preview.png",
+    "postUrl": "https://fx1-hubs.vercel.app/",
+    "button": {
+      "title": "Launch FX1 Digital Hubs",
+      "action": {
+        "type": "launch_miniapp",
+        "name": "FX1 Digital Hubs",
+        "url": "https://fx1-hubs.vercel.app/",
+        "splashImageUrl": "https://fx1-hubs.vercel.app/splash.png",
+        "splashBackgroundColor": "#0504AA"
+      }
+    }
+  }' />
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- PWA / Theme -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0504AA" />
+
+  <!-- Apple touch icon (optional but nice) -->
+  <link rel="apple-touch-icon" href="/splash.png" />
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">FX1</div>
 
-    <div class="container">
+    <!-- Header -->
+    <h1>FX1 DIGITAL HUBS</h1>
+    <h2>Fashion × Art × Blockchain</h2>
 
-        <!-- Logo -->
-        <div class="logo">FX1</div>
+    <!-- Wallet Connect Button -->
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <p id="wallet-status" style="margin-top:15px; opacity:0.9;"></p>
 
-        <!-- Header -->
-        <h1>FX1 DIGITAL HUBS</h1>
-        <h2>Fashion × Art × Blockchain</h2>
+    <!-- Footer -->
+    <p class="footer">Powered by Base · $FDH Ecosystem</p>
+  </div>
 
-        <!-- Wallet Connect Button -->
-        <button onclick="connectWallet()">Connect Wallet</button>
-        <p id="wallet-status" style="margin-top:15px; opacity:0.9;"></p>
-
-        <!-- Footer -->
-        <p class="footer">Powered by Base · $FDH Ecosystem</p>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js" defer></script>
-
+  <!-- Your script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
-<link rel="manifest" href="manifest.json" />
