@@ -1,27 +1,31 @@
-import React, { useEffect, useState } from 'react'; // 🛑 ADDED: useEffect and useState
-import { sdk } from '@farcaster/miniapp-sdk'; // 🛑 ADDED: Farcaster SDK
+import React, { useEffect, useState } from 'react';
+import { sdk } from '@farcaster/miniapp-sdk';
+import { AuthKitProvider } from '@farcaster/auth-kit'; // 🛑 NEW IMPORT
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 
+// 🛑 Configuration object for AuthKit
+// If your app is deployed to fx1-hubs.vercel.app, this is all you need:
+const config = {
+  domain: 'fx1-hubs.vercel.app',
+  siweUri: 'https://fx1-hubs.vercel.app/siwe', // Standard SIWE URI
+  relay: 'passkey', // Recommended relay type
+};
+
 export default function App() {
-  // 🛑 ADDED: State to manage the loading status while waiting for the Farcaster client
   const [isFarcasterReady, setIsFarcasterReady] = useState(false);
   
   useEffect(() => {
-    // 1. CRITICAL FIX: Signal to the Farcaster client (Warpcast/Base app) that the mini app is loaded.
+    // 1. CRITICAL FIX: Signal to the Farcaster client that the mini app is loaded.
     sdk.actions.ready();
-    console.log("FX1 Digital Hubs Mini App: Farcaster SDK 'ready' signal sent.");
+    console.log("FX1 Mini App: Farcaster SDK 'ready' signal sent.");
 
-    // 2. Set the state to true, allowing the app content to render
-    // You might want to delay this slightly if you have other async loading in 'Home'
+    // 2. Allow the app content to render once the signal is sent
     setIsFarcasterReady(true); 
-    
-    // Note: If you need to fetch the actual user ID, you'll need another SDK call here.
 
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
-  // 🛑 ADDED: A professional loading screen check
   if (!isFarcasterReady) {
     return (
         <div style={{ padding: '20px', textAlign: 'center' }}>
@@ -31,12 +35,12 @@ export default function App() {
     );
   }
 
-  // Once ready, render your main components
+  // 🛑 WRAPPER FIX: All components are now wrapped in the AuthKitProvider.
   return (
-    <>
+    <AuthKitProvider config={config}>
       <Header />
       <Home />
       <Footer />
-    </>
+    </AuthKitProvider>
   );
 }
